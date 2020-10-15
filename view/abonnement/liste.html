@@ -1,0 +1,74 @@
+    <html>
+	<head>
+		<meta charset="UTF-8">
+		<title>page liste</title>
+		<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
+		<style>
+			h1{ 
+				color: #40007d;
+			}
+            .cd{
+                background-color:#ffff00;
+            }
+            .r{
+                background: paleturquoise;
+                background-color:#46b8da;
+                text-decoration-color:#46b8da;
+                text-align: center;
+
+
+            }
+		</style>
+	</head>
+	<body background="{$url_base}public/image/5.png">
+    <div class="nav navbar navbar-default navbar-fixed-top">
+        <ul class="nav navbar-nav r">
+            <!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+            <li><a href="{$url_base}client/liste">Client</a></li>
+            <li><a href="{$url_base}abonnement/liste">Abonnement</a></li>
+            <li><a href="{$url_base}compteur/liste">Compteur</a></li>
+        </ul>
+    </div>
+		<div class="col-md-8 col-xs-12 col-md-offset-2" style="margin-top:150px;">
+			<div class="panel panel-info">
+				<div class="panel-heading r">BIENVENUE DANS SENFORAGE</div>
+				<div class="panel-body cd">
+					{if isset($abonnements)}
+						{if $abonnements != null}
+							<table class="table table-bordered table-stripped">
+								<tr>
+									<th>Identifiant</th>
+									<th>Date d'Abonnement</th>
+                                    <th>Texte d'Abonnement</th>
+                                    <th>Identifiant Client</th>
+                                    <th>Identifiant Compteur</th>
+									<th>Action</th>
+									<th>Action</th>
+                                    <th>Action</th>
+								</tr>
+                                {foreach item=abonnement from=$abonnements}
+									<tr>
+										<td>{$abonnement['idA']}</td>
+										<td>{$abonnement['dateA']}</td>
+                                        <td>{$abonnement['texteA']}</td>
+                                        <td>{$abonnement['idC']}</td>
+                                        <td>{$abonnement['idCompt']}</td>
+										<td><a href="{$url_base}abonnement/delete/{$abonnement['idA']}">Supprimer</a></td>
+										<td><a href="{$url_base}abonnement/edit/{$abonnement['idA']}">Editer</a></td>
+                                        <td><a href="{$url_base}compteur/add?idCompt={$abonnement['idCompt']}">Compteur</a></td>
+									</tr>
+                                {/foreach}
+							</table>
+						{else}
+							Liste vide
+						{/if}
+					{/if}
+				</div>
+
+			</div>
+		</div>
+		
+	</body>
+</html>

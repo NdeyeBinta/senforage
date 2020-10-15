@@ -1,0 +1,61 @@
+    <html>
+	<head>
+		<meta charset="UTF-8">
+		<title>page liste</title>
+		<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
+		<style>
+			h1{ 
+				color: #40007d;
+			}
+		</style>
+	</head>
+	<body>
+    <div class="nav navbar navbar-default navbar-fixed-top">
+        <ul class="nav navbar-nav">
+            <!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+            <li><a href="{$url_base}client/liste">Client</a></li>
+            <li><a href="{$url_base}abonnement/liste">Abonnement</a></li>
+            <li><a href="{$url_base}compteur/liste">Compteur</a></li>
+        </ul>
+    </div>
+		<div class="col-md-8 col-xs-12 col-md-offset-2" style="margin-top:150px;">
+			<div class="panel panel-info">
+				<div class="panel-heading">BIENVENUE DANS SENFORAGE</div>
+				<div class="panel-body">
+					{if isset($compteurs)}
+						{if $compteurs != null}
+							<table class="table table-bordered table-stripped">
+								<tr>
+									<th>Numero</th>
+									<th>Consommation en Lettre</th>
+                                    <th>Consommation en Chiffre</th>
+                                    <th>Consommation Reel</th>
+									<th>Action</th>
+									<th>Action</th>
+                                    <th>Action</th>
+								</tr>
+                                {foreach item=$compteur from=$compteurs}
+									<tr>
+										<td>{$compteur['idCompt']}</td>
+										<td>{$compteur['consL']}</td>
+                                        <td>{$compteur['consC']}</td>
+                                        <td>{$compteur['consR']}</td>
+										<td><a href="{$url_base}compteur/delete/{$compteur['idCompt']}">Supprimer</a></td>
+										<td><a href="{$url_base}compteur/edit/{$compteur['idCompt']}">Editer</a></td>
+                                        <td><a href="{$url_base}compteur/add?idCompt={$Compteur['idCompt']}">Facture</a></td>
+									</tr>
+                                {/foreach}
+							</table>
+						{else}
+							Liste vide
+						{/if}
+					{/if}
+				</div>
+                <a href="{$url_base}consommation/add">Ajout d'une Consommation</a>
+			</div>
+		</div>
+		
+	</body>
+</html>

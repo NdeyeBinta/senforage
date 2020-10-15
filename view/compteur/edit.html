@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>page get id</title>
+		<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
+		<style>
+			h1{ 
+				color: #40007d;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="{$url_base}public/image/logo.jpg" class="resize" />
+        <div class="nav navbar navbar-default navbar-fixed-top">
+            <ul class="nav navbar-nav">
+                <!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+                <li><a href="{$url_base}client/liste">Client</a></li>
+                <li><a href="{$url_base}abonnement/liste">Abonnement</a></li>
+                <li><a href="{$url_base}compteur/liste">Compteur</a></li>
+            </ul>
+        </div>
+		<div class="col-md-8 col-xs-12 col-md-offset-2" style="margin-top:150px;">
+			<div class="panel panel-info">
+				<div class="panel-heading">BIENVENUE DANS SENFORAGE</div>
+				<div class="panel-body">
+					<form method="post" action="{$url_base}Abonnement/update">
+						<div class="form-group">
+							<label class="control-label">Numero  d' Abonnement</label>
+							<input class="form-control" type="text" name="idA" id="idA" value="{if isset($abonnement)} {$abonnement['idA']} {/if}"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Date Abonnement</label>
+							<input class="form-control" type="text" name="dateA" id="dateA" value="{if isset($abonnement)} {$abonnement['dateA']} {/if}"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Texte d'Abonnement</label>
+							<input class="form-control" type="text" name="texteA" id="texteA" value="{if isset($abonnement)} {$abonnement['texteA']} {/if}"/>
+						</div>
+                        <div class="form-group">
+                            <label class="control-label">Identifiant Client </label>
+                            <input class="form-control" type="text" name="idC" id="idC" value="{if isset($abonnement)} {$abonnement['idC']} {/if}"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Identifiant Compteur</label>
+                            <input class="form-control" type="text" name="idCompt" id="idCompt" value="{if isset($abonnement)} {$abonnement['idCompt']} {/if}"/>
+                        </div>
+						<div class="form-group">
+							<input class="btn btn-success" type="submit" name="modifier" value="Modifier"/>
+							<a class="btn btn-primary" href="{$url_base}Abonnement/liste">Retour</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

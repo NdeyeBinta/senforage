@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>page get id</title>
+		<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
+		<style>
+			h1{ 
+				color: #40007d;
+			}
+
+              .cd{
+                  background-color:#46b8da;
+              }
+            .r{
+                background: paleturquoise;
+                background-color:#46b8da;
+                text-decoration-color:#46b8da;
+                text-align: center;
+
+            }
+
+		</style>
+	</head>
+	<body background="{$url_base}public/image/6.jpg">
+		<img src="{$url_base}public/image/logo.jpg" class="resize" />
+        <div class="nav navbar navbar-default navbar-fixed-top">
+            <ul class="nav navbar-nav r " >
+                <!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+                <li><a href="{$url_base}client/liste">Client</a></li>
+                <li><a href="{$url_base}abonnement/liste">Abonnement</a></li>
+                <li><a href="{$url_base}compteur/liste">Compteur</a></li>
+            </ul>
+        </div>
+		<div class="col-md-8 col-xs-12 col-md-offset-2" style="margin-top:150px;">
+			<div class="panel panel-info">
+				<div class="panel-heading r ">BIENVENUE DANS SENFORAGE</div>
+				<div class="panel-body cd">
+					{if isset($ok)}
+						{if $ok != 0}
+							<div class="alert alert-success">Données ajoutées!</div>
+						{else}
+							<div class="alert alert-danger">Erreur!</div>
+						{/if}
+					{/if}
+					<form method="post" action="{$url_base}client/add">
+						<div class="form-group">
+							<label class="control-label">Nom de Famille</label>
+							<input class="form-control" type="text" name="nomFamille" id="nomFamille"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Nom du Chef de Village</label>
+							<input class="form-control" type="text" name="nomChef" id="nomChef"/>
+						</div>
+                        <div class="form-group">
+                            <label class="control-label">Nom du Village</label>
+                            <input class="form-control" type="text" name="nomVillage" id="nomVillage"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Adress</label>
+                            <input class="form-control" type="text" name="adress" id="adress"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Numero de Telephone</label>
+                            <input class="form-control" type="number" name="numTel" id="numTel"/>
+                        </div>
+
+
+                        <div class="form-group">
+							<input class="btn btn-success" type="submit" name="valider" value="Valider"/>
+							<input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
+						</div>
+					</form>
+				</div>
+                <a href="{$url_base}client/liste">Retour a la liste  </a>
+			</div>
+		</div>
+	</body>
+</html>

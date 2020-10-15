@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>page d'accueil</title>
+		<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
+		<!-- integration de javascript dans le moteur de rendu de vue Smarty -->
+		{literal}
+			<script language=javascript>
+			 function load_design() {
+			   document.getElementById("design_js").style.color = "#40007d";
+			 }
+
+			</script>
+		{/literal}
+    <style>
+        .cd{
+            /*background = "{$url_base}public/image/13.jpg";*/
+            background-repeat: no-repeat;
+           /* background-size: 1200px 125px;*/
+            /*left: 10000px;
+            right: 900px;*/
+        }
+        .r{
+            background: paleturquoise;
+            background-color:#46b8da;
+            text-decoration-color:#46b8da;
+            text-align: center;
+
+        }
+    </style>
+	</head>
+	<body onload="load_design()" background="{$url_base}public/image/13.jpg"  class ="cd"  >
+		<div class="nav navbar  navbar-fixed-top">
+			<ul class="nav navbar-nav r">
+				<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+				<li><a href="{$url_base}client/liste">Client</a></li>
+				<li><a href="{$url_base}abonnement/liste">Abonnement</a></li>
+				<li><a href="{$url_base}compteur/liste">Compteur</a></li>
+			</ul>
+		</div>
+		<img src="{$url_base}public/image/logo.jpg" class="resize" />
+		
+
++		<div class="col-md-8 col-xs-12 col-md-offset-2" style="margin-top:160px;">
+			<div class="panel panel-info">
+				<div class="panel-heading r ">BIENVENUE DANS SENFORAGE</div>
+			</div>
+		</div>
+	</body>
+</html>
